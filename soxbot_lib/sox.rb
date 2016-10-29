@@ -50,6 +50,8 @@ class Sox
   end
 
   def files_selector_prompt files
+
+
     file_count = 0
     non_count = 0
     cols = Params.new([
@@ -113,6 +115,10 @@ class Sox
       end
     end
 
+    if file_count == 0
+      %x(zenity --error --title "#{@program_name}" --text "No valid files provided!")
+      exit 0
+    end
     count_msg = "#{file_count} soundfiles found (#{non_count} ignored).#{NL3}"
 
     height = file_count * 22 + 200
@@ -186,7 +192,11 @@ class Sox
     ])
 
     @commands = %x(#{zenity_checklist} #{cols} #{cmd_list}).split("|")
-    return @commands
+    if @command.length == 0
+      return false
+    else
+      return @commands
+    end
   end
 
 end

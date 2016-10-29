@@ -4,13 +4,11 @@ CALLER_DIR = %x(pwd)
 # Dir.chdir('')
 
 require 'pp'
-require_relative 'lib/sox.rb'
-require_relative 'lib/params.rb'
+require_relative 'soxbot_lib/sox.rb'
+require_relative 'soxbot_lib/params.rb'
 
 sox = Sox.new
 
-
 ans = sox.files_selector_prompt ARGV
-pp sox.files
+# we should: abort unless ans # but it's not working
 cmds = sox.commands_selector_prompt
-puts cmds

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-testit () {
-	echo "hi"
-}
+
 get_text () {
 	titlebar="$1"; question="$2"; def_text="$3"; shift; shift; shift
 	echo "$(zenity --entry --text "$question" --title "$titlebar" --entry-text "$def_text" "$@")"
