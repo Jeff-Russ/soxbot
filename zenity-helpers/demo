@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source_funcs () {
+	local SRC_DIR="$(dirname "${BASH_SOURCE[0]}")"
+	source "$SRC_DIR/sox_funcs.sh"
+}
+

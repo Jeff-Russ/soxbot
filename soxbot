@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+CALLER_DIR = %x(pwd)
+# Dir.chdir('')
+
+require 'pp'
+require_relative 'lib/sox.rb'
+require_relative 'lib/params.rb'
+
+sox = Sox.new
+
+
+ans = sox.files_selector_prompt ARGV
+pp sox.files
+cmds = sox.commands_selector_prompt
+puts cmds
